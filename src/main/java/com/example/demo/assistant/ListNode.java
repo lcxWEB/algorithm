@@ -10,6 +10,9 @@ public class ListNode {
         next = null;
     }
 
+    public ListNode() {
+    }
+
     public ListNode(int[] arr) {
         if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("arr cannot be empty");

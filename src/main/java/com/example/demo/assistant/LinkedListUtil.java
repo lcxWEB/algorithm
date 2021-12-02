@@ -5,6 +5,16 @@ package com.example.demo.assistant;
  */
 public class LinkedListUtil {
 
+    public static ListNode build(int num) {
+        ListNode dummy = new ListNode();
+        ListNode p = dummy;
+        for (int i = 0; i < num; i++) {
+            p.next = new ListNode(i+1);
+            p = p.next;
+        }
+        return dummy.next;
+    }
+
     public static ListNode buildAList() {
         ListNode l1 = new ListNode(2);
         ListNode l1Node = new ListNode(4);
