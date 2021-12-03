@@ -11,11 +11,11 @@ public class SwapBeginEnd {
 
 
     public static void main(String[] args) {
-        ListNode head = LinkedListUtil.build(4);
+        ListNode head = LinkedListUtil.build(5);
         ListNode listNode = swap(head);
 
         ListNode p = listNode;
-        while(p != null) {
+        while (p != null) {
             System.out.println(p.val);
             p = p.next;
         }
@@ -23,21 +23,34 @@ public class SwapBeginEnd {
     }
 
     private static ListNode swap(ListNode head) {
-        if(head == null || head.next == null || head.next.next == null) {
+        if (head == null || head.next == null || head.next.next == null) {
             return head;
         }
 
         int l = getLength(head);
-        int mid = l / 2;
+        // 链表拆成两半，前半段 >= 后半段
+        int mid = l / 2 + l % 2;
         ListNode p2 = head;
-        while(mid > 0) {
-            p2 = p2.next;
+        while (mid > 0) {
+            if (mid == 1) {
+                ListNode temp = p2.next;
+                p2.next = null;
+                p2 = temp;
+            } else {
+                p2 = p2.next;
+            }
             mid--;
         }
 
         p2 = reverse(p2);
         ListNode p1 = head;
-        while(p1 != null && p2 != null) {
+        merge(p2, p1);
+
+        return head;
+    }
+
+    private static void merge(ListNode p2, ListNode p1) {
+        while (p1 != null && p2 != null) {
             ListNode next1 = p1.next;
             ListNode next2 = p2.next;
             p1.next = p2;
@@ -45,21 +58,32 @@ public class SwapBeginEnd {
             p1 = next1;
             p2 = next2;
         }
-        if (p2 == null && p1 != null) {
-            p1.next = p2;
-        }
-        return head;
     }
 
     private static ListNode reverse(ListNode head) {
         if (head == null || head.next == null) {
             return head;
         }
-        ListNode res = reverse(head.next);
-        head.next.next = head;
-        head.next = null;
-        return res;
+        ListNode pre = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode next = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = next;
+        }
+        return pre;
     }
+
+    // private static ListNode reverse(ListNode head) {
+    //     if (head == null || head.next == null) {
+    //         return head;
+    //     }
+    //     ListNode res = reverse(head.next);
+    //     head.next.next = head;
+    //     head.next = null;
+    //     return res;
+    // }
 
     private static int getLength(ListNode head) {
         ListNode p = head;
