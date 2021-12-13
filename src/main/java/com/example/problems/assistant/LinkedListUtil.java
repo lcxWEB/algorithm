@@ -15,6 +15,14 @@ public class LinkedListUtil {
         return dummy.next;
     }
 
+    public static void print(ListNode listNode) {
+        ListNode p = listNode;
+        while (p != null) {
+            System.out.println(p.val);
+            p = p.next;
+        }
+    }
+
     public static ListNode buildAList() {
         ListNode l1 = new ListNode(2);
         ListNode l1Node = new ListNode(4);
