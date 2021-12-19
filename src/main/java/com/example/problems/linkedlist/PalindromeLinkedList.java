@@ -1,4 +1,4 @@
-package com.example.problems.easy;
+package com.example.problems.linkedlist;
 
 import com.example.problems.assistant.LinkedListUtil;
 import com.example.problems.assistant.ListNode;

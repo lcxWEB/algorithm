@@ -1,4 +1,4 @@
-package com.example.problems.easy;
+package com.example.problems.hashtable;
 
 import java.util.Arrays;
 import java.util.HashMap;

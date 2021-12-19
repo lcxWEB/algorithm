@@ -1,4 +1,4 @@
-package com.example.problems.easy;
+package com.example.problems.tree;
 
 import com.example.problems.assistant.TreeNode;
 import com.example.problems.assistant.TreeUtil;

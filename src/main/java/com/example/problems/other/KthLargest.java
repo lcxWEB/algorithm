@@ -1,4 +1,4 @@
-package com.example.problems.easy;
+package com.example.problems.other;
 
 import java.util.PriorityQueue;
 
