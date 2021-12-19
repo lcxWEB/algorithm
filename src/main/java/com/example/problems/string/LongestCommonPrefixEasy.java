@@ -1,4 +1,4 @@
-package com.example.problems.easy;
+package com.example.problems.string;
 
 /**
  * Created by lichunxia on 2020-02-15 20:32
